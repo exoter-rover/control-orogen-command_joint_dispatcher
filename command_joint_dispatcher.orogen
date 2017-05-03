@@ -2,7 +2,7 @@ name "command_joint_dispatcher"
 
 # If new data types need to be defined, they have to be put in a separate C++
 # header, and this header will be loaded here
-import_types_from "joint_dispatcherTypes.hpp"
+import_types_from "command_joint_dispatcherTypes.hpp"
 
 import_types_from 'base'
 using_library 'joint_dispatcher'
