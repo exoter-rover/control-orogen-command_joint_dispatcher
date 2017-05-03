@@ -1,12 +1,11 @@
 /* Generated from orogen/lib/orogen/templates/tasks/Task.hpp */
 
-#ifndef READ_JOINT_DISPATCHER_TASK_TASK_HPP
-#define READ_JOINT_DISPATCHER_TASK_TASK_HPP
+#ifndef COMMAND_JOINT_DISPATCHER_TASK_TASK_HPP
+#define COMMAND_JOINT_DISPATCHER_TASK_TASK_HPP
 
-#include "read_joint_dispatcher/TaskBase.hpp"
-#include <joint_dispatcher/Dispatcher.hpp>
+#include "command_joint_dispatcher/TaskBase.hpp"
 
-namespace read_joint_dispatcher{
+namespace command_joint_dispatcher{
 
     /*! \class Task
      * \brief The task context provides and requires services. It uses an ExecutionEngine to perform its functions.
@@ -19,7 +18,7 @@ By default, it is activated by the dispatches' input ports
      * The name of a TaskContext is primarily defined via:
      \verbatim
      deployment 'deployment_name'
-         task('custom_task_name','read_joint_dispatcher::Task')
+         task('custom_task_name','command_joint_dispatcher::Task')
      end
      \endverbatim
      *  It can be dynamically adapted when the deployment is called with a prefix argument.
@@ -28,26 +27,15 @@ By default, it is activated by the dispatches' input ports
     {
 	friend class TaskBase;
     protected:
-        typedef RTT::OutputPort<base::samples::Joints> OutputPort;
-        typedef RTT::InputPort<base::samples::Joints> InputPort;
 
-        std::vector<InputPort*> mInputPorts;
-        std::vector<OutputPort*> mOutputPorts;
 
-        joint_dispatcher::Dispatcher mDispatcher;
-        base::samples::Joints mJoint;
-	
-	std::map<std::string,std::string> jointToStreamMap;
-
-        /** Deletes all defined input and output ports */
-        void clearPorts();
 
     public:
         /** TaskContext constructor for Task
          * \param name Name of the task. This name needs to be unique to make it identifiable via nameservices.
          * \param initial_state The initial TaskState of the TaskContext. Default is Stopped state.
          */
-        Task(std::string const& name = "read_joint_dispatcher::Task");
+        Task(std::string const& name = "command_joint_dispatcher::Task");
 
         /** TaskContext constructor for Task
          * \param name Name of the task. This name needs to be unique to make it identifiable for nameservices.
