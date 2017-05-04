@@ -41,5 +41,7 @@ task_context "Task" do
 
     # Statically defined outputs
     output_port "motors_commands","base/samples/Joints"
+
+    port_driven
 end
 
